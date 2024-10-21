@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 18:13:02 by juhenriq          #+#    #+#             */
-/*   Updated: 2024/10/21 20:01:01 by juhenriq         ###   ########.fr       */
+/*   Created: 2024/10/18 19:43:40 by juhenriq          #+#    #+#             */
+/*   Updated: 2024/10/18 20:29:28 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+int	ft_isalpha(int c)
+{
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
+	else
+		return (0);
+}
 
-# include <stdlib.h>
-
-// char	*ft_substr(char const *s, unsigned int start, size_t len);
-int	ft_isalpha(int c);
-int	ft_isdigit(int c);
-int	ft_isalnum(int c);
-int	ft_isascii(int c);
-
-#endif
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	int	c = 'c';
+// 	printf("%d", isalpha(c));
+// 	return (0);
+// }
