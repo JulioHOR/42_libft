@@ -1,16 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/21 20:02:22 by juhenriq          #+#    #+#             */
-/*   Updated: 2024/10/22 20:41:31 by juhenriq         ###   ########.fr       */
+/*   Created: 2024/10/22 20:33:57 by juhenriq          #+#    #+#             */
+/*   Updated: 2024/10/22 20:40:58 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+#include <stdlib.h>
+
+size_t	ft_strlen(const char *s)
 {
-	return ((c >= 32) && (c <= 126));
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }
