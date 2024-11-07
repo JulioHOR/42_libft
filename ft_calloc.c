@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/03 00:53:32 by juhenriq          #+#    #+#             */
-/*   Updated: 2024/11/07 17:43:40 by juhenriq         ###   ########.fr       */
+/*   Created: 2024/11/07 17:25:22 by juhenriq          #+#    #+#             */
+/*   Updated: 2024/11/07 19:07:09 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t	i;
+	void	*mem_addr;
 
-	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0' && (i < n))
-	{
-		if (s1[i] != s2[i])
-			return (((unsigned char)s1[i] - (unsigned char)s2[i]));
-		i++;
-	}
-	if (i < n)
-		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-	return (0);
+	if (((nmemb != 0) && (size > (((-1) * size) / nmemb))))
+		return ((void *) 0);
+	mem_addr = malloc(size * nmemb);
+	if (!(mem_addr))
+		return ((void *) 0);
+	ft_memset(mem_addr, '\0', size * nmemb);
+	return (mem_addr);
 }
