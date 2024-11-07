@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 19:58:48 by juhenriq          #+#    #+#             */
-/*   Updated: 2024/10/21 20:00:31 by juhenriq         ###   ########.fr       */
+/*   Updated: 2024/11/07 19:10:41 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,3 @@ int	ft_isascii(int c)
 {
 	return (c >= 0 && c <= 127);
 }
-
-// int	main(void)
-// {
-// 	return (0);
-// }
