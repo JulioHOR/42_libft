@@ -26,6 +26,19 @@
             "MIMode": "gdb",
             "preLaunchTask": "Debug ft_strjoin.c",
             "miDebuggerPath": "/usr/bin/gdb"
+        },
+        {
+            "name": "ft_strtrim.c",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "preLaunchTask": "Debug ft_strtrim.c",
+            "miDebuggerPath": "/usr/bin/gdb"
         }
     ]
 }
