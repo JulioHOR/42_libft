@@ -6,13 +6,13 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 01:13:44 by juhenriq          #+#    #+#             */
-/*   Updated: 2024/11/08 02:09:59 by juhenriq         ###   ########.fr       */
+/*   Updated: 2024/11/08 02:12:45 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		s1_len;
 	int		s2_len;
