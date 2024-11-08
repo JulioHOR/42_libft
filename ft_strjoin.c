@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 01:13:44 by juhenriq          #+#    #+#             */
-/*   Updated: 2024/11/08 02:06:40 by juhenriq         ###   ########.fr       */
+/*   Updated: 2024/11/08 02:09:59 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ char *ft_strjoin(char const *s1, char const *s2)
 		return ((void *) 0);
 	ft_strlcpy(new_string, s1, s1_len + 1);
 	ft_strlcat(new_string, s2, combined_len);
-	new_string[combined_len - 1] = '\0';
 	return (new_string);
 }
