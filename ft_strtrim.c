@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:41:38 by juhenriq          #+#    #+#             */
-/*   Updated: 2024/11/08 17:40:16 by juhenriq         ###   ########.fr       */
+/*   Updated: 2024/11/08 21:57:57 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,41 +28,45 @@ int	it_matches(char char_to_match, char const *set)
 	return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+int	find_it_for_me(char const *s1, char const *set, int flag_start_or_end)
 {
 	int	i;
-	int	start;
-	int	ends;
-	int	new_str_len;
-
-	start = -1;
-	ends = -1;
-	new_str_len = 1;
-	i = 0;
-	while(s1[i])
+	
+	if (flag_start_or_end == 0)
 	{
-		// se for um caractere relevante e start for igual a -1;
-		if (!(it_matches(s1[i], set)) && (start == -1))
-			start = i;
-		if (!(it_matches(s1[i], set)))
-			new_str_len++;
-		if (it_matches(s1[i], set) && start != -1)
-			ends = i;
-		i++;
+		i = 0;
+		while(s1[i])
+		{
+			if (!(it_matches(s1[i], set)))
+				return (i);
+			i++;
+		}		
 	}
-	if (ends == -1)
-		ends = i;
-	if (start == -1)
-		return (((void *) 0));
-	return (ft_substr(s1, start, new_str_len));
+	if (flag_start_or_end == 1)
+	{
+		i = (ft_strlen(s1) - 1);
+		while(s1[i])
+		{
+			if (!(it_matches(s1[i], set)))
+				return (i);
+			i--;
+		}
+	}
+	return (-1);
 }
 
-#include <stdio.h>
-int	main(void)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char *string = "lixo string lixo";
-	char *set = "lixo ";
+	int	start;
+	int	end;
 
-	printf("\n%s\n", ft_strtrim(string, set));
-	return (0);
+	if (!s1 || !set)
+		return (((void *) 0));
+	if (ft_strlen(s1) == 0 || ft_strlen(set) == 0)
+			return (ft_strdup(s1));
+	start = find_it_for_me(s1, set, 0);
+	end = find_it_for_me(s1, set, 1);
+	if (start == -1 || end == -1)
+		return (calloc(1, 1));
+	return (ft_substr(s1, start, ((end - start) + 1)));
 }
