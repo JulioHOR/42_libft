@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 22:04:02 by juhenriq          #+#    #+#             */
-/*   Updated: 2024/11/09 01:53:23 by juhenriq         ###   ########.fr       */
+/*   Updated: 2024/11/09 20:55:47 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,58 +14,60 @@
 #include <stdio.h>
 #include <unistd.h>
 
-// continue daqui
-void	fill_pointer_array(char **pointer_array, char const *s, char c)
+void	fill_pointer_array(char **ptr_arr, char const *s, char c)
 {
-	int	pointer_array_pos;
+	int	ptr_arr_pos;
 	int	start;
 	int	i;
 
-	pointer_array_pos = 0;
+	ptr_arr_pos = 0;
 	start = -1;
-	i = 0;
-	while(s[i])
+	i = -1;
+	while(s[++i])
 	{
 		if ((start == -1) && (s[i] != c))
 			start = i;
-		if (s[i] == c)
+		if ((start != -1) && (s[i + 1] == '\0'))
 		{
-			if (start != -1)
-			{
-				pointer_array[pointer_array_pos++] = \
-					ft_substr(s, start, (i + 1));
-				start = -1;
-			}
-			if ((start == -1) && (s[i + 1] == '\0'))
-				pointer_array[pointer_array_pos++] = calloc(1, 1);
+			if (s[i] == c)
+			ptr_arr[ptr_arr_pos++] = ft_substr(s, start, ((i) - start));
+			else
+				ptr_arr[ptr_arr_pos++] = ft_substr(s, start, ((i + 1) - start));
+			start = -1;
 		}
-		i++;
+		if ((start != -1) && (s[i] == c))
+		{
+			ptr_arr[ptr_arr_pos++] = ft_substr(s, start, (i - start));
+			start = -1;
+		}
 	}
 }
 
 unsigned int	determine_pointer_array_len(char const *s, char c)
 {
 	int				i;
+	int				start;
 	unsigned int	pointer_array_len;
-	
-	pointer_array_len = 0;
+
+	start = -1;
+	pointer_array_len = 1;
 	i = 0;
 	while (s[i])
 	{
 		if ((s[i] == c))
+			start = -1;
+		if ((s[i] != c) && (start == -1))
+		{
 			pointer_array_len++;
-		if ((s[i] == c) && (i == 0))
-			pointer_array_len++;
-		if ((s[i] == c) && (s[i + 1] == '\0'))
-			pointer_array_len++;
+			start = i;
+		}
 		i++;
 	}
-	return (++pointer_array_len);
+	return (pointer_array_len);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int				i;
 	char			**pointer_array;
 	unsigned int	pointer_array_len;
 
@@ -73,23 +75,31 @@ char	**ft_split(char const *s, char c)
 	pointer_array = (char **) malloc(pointer_array_len * sizeof(char *));
 	pointer_array[pointer_array_len - 1] = ((void *) 0);
 	fill_pointer_array(pointer_array, s, c);
-	printf("\napenas para debug:\n- pointer_array_len foi: %d", pointer_array_len);
+	// printf("\napenas para debug:\n- pointer_array_len foi: %d", pointer_array_len);
 	return (pointer_array);
 }
 
-int	main(void)
-{
-	// quantidade de 'c's = 8
-	char	*string = "cccabd";
-	char	delimiter = 'c';
+// int	main(void)
+// {
+// 	// quantidade de 'c's = 8
+// 	char	*string = "split  ||this|for|me|||||!|";
+// 	char	delimiter = '|';
+// 	int		i;
 
-	char **pointer_array = ft_split(string, delimiter);
-	write(1, "\n", 1);
-	while(pointer_array)
-	{
-		printf("\n%s", *pointer_array);
-		pointer_array++;
-	}
-	write(1, "\n", 1);
-	return (0);
-}
+// 	char **pointer_array = ft_split(string, delimiter);
+// 	write(1, "\n", 1);
+// 	i = 0;
+// 	while (*pointer_array)
+// 	{
+// 		write(1, "\n", 1);
+// 		i = 0;
+// 		while((*pointer_array)[i])
+// 		{
+// 			write(1, &((*pointer_array)[i]), 1);
+// 			i++;
+// 		}
+// 		pointer_array++;
+// 	}
+// 	write(1, "fim\n\n---\n\n", 14);
+// 	return (0);
+// }
