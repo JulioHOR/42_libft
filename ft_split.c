@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 22:04:02 by juhenriq          #+#    #+#             */
-/*   Updated: 2024/11/09 20:55:47 by juhenriq         ###   ########.fr       */
+/*   Updated: 2024/11/09 21:00:11 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
+// free seja o q deus quiser
 void	fill_pointer_array(char **ptr_arr, char const *s, char c)
 {
 	int	ptr_arr_pos;
