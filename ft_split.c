@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 22:04:02 by juhenriq          #+#    #+#             */
-/*   Updated: 2024/11/09 21:00:11 by juhenriq         ###   ########.fr       */
+/*   Updated: 2024/11/10 01:32:28 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ char	**ft_split(char const *s, char c)
 
 	pointer_array_len = determine_pointer_array_len(s, c);
 	pointer_array = (char **) malloc(pointer_array_len * sizeof(char *));
+	if (!pointer_array)
+		return ((void *) 0);
 	pointer_array[pointer_array_len - 1] = ((void *) 0);
 	fill_pointer_array(pointer_array, s, c);
 	// printf("\napenas para debug:\n- pointer_array_len foi: %d", pointer_array_len);
