@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 19:13:18 by juhenriq          #+#    #+#             */
-/*   Updated: 2024/11/07 19:49:27 by juhenriq         ###   ########.fr       */
+/*   Updated: 2024/11/11 20:01:47 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,17 @@ char	*ft_strdup(const char *s)
 		malloc_return[i] = s[i];
 		i++;
 	}
-	malloc_return[i] = '\0';
 	return (malloc_return);
 }
+
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	char	*string = "string básica";
+// 	char	*recibo;
+
+// 	recibo = ft_strdup(string);
+// 	printf("%s", recibo);
+// 	free(recibo);
+// 	return (0);
+// }
