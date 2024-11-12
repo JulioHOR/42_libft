@@ -6,13 +6,13 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 18:26:31 by juhenriq          #+#    #+#             */
-/*   Updated: 2024/11/11 19:40:10 by juhenriq         ###   ########.fr       */
+/*   Updated: 2024/11/12 16:04:53 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	determine_n_len(int	n)
+int	determine_n_len(int n)
 {
 	int	i;
 
@@ -27,8 +27,9 @@ int	determine_n_len(int	n)
 	return (i);
 }
 
-void	fill_arr(char *array, int array_pos, int	n, int is_negative)
+void	fill_arr(char *array, int array_pos, int n, int is_negative)
 {
+	array[array_pos + 1] = '\0';
 	if (is_negative)
 		array[0] = '-';
 	while (array_pos >= is_negative)
@@ -54,27 +55,15 @@ char	*ft_itoa(int n)
 		{
 			that_number = 1;
 			n = 2147483647;
-		} else
+		}
+		else
 			n *= -1;
 	}
 	array = malloc(((n_len + is_negative) + 1) * sizeof(char));
 	if (!(array))
 		return (NULL);
-	array[(n_len + is_negative)] = '\0';
 	fill_arr(array, ((n_len + is_negative) - 1), n, is_negative);
 	if (that_number)
 		array[(n_len + is_negative - 1)] = '8';
 	return (array);
 }
-
-// #include <stdio.h>
-
-// int	main(void)
-// {
-// 	int	number;
-
-// 	// number = -2147483648;
-// 	number = 0;
-// 	printf("\n\nNúmero: %s\n\n", ft_itoa(number));
-// 	return (0);
-// }
