@@ -6,19 +6,19 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 22:04:02 by juhenriq          #+#    #+#             */
-/*   Updated: 2024/11/11 18:14:59 by juhenriq         ###   ########.fr       */
+/*   Updated: 2024/11/13 19:08:22 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	free_substrings(char **ptr_arr, int ptr_arr_pos)
+static void	free_substrings(char **ptr_arr, int ptr_arr_pos)
 {
 	while (ptr_arr_pos >= 0)
 		free(ptr_arr[ptr_arr_pos--]);
 }
 
-int	fill_pointer_array(char **ptr_arr, char const *s, char c)
+static int	fill_pointer_array(char **ptr_arr, char const *s, char c)
 {
 	int	ptr_arr_pos;
 	int	start;
@@ -47,7 +47,7 @@ int	fill_pointer_array(char **ptr_arr, char const *s, char c)
 	return (0);
 }
 
-unsigned int	determine_pointer_array_len(char const *s, char c)
+static unsigned int	determine_pointer_array_len(char const *s, char c)
 {
 	int				i;
 	int				start;

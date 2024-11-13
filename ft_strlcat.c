@@ -6,11 +6,10 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 17:22:41 by juhenriq          #+#    #+#             */
-/*   Updated: 2024/11/02 18:59:32 by juhenriq         ###   ########.fr       */
+/*   Updated: 2024/11/13 19:07:40 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
