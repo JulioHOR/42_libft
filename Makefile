@@ -6,7 +6,7 @@
 #    By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/17 19:42:29 by juhenriq          #+#    #+#              #
-#    Updated: 2024/11/12 16:35:41 by juhenriq         ###   ########.fr        #
+#    Updated: 2024/11/13 19:03:56 by juhenriq         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,17 +22,17 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 	ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_atoi.c ft_calloc.c \
 	ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c \
 	ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
-	ft_putnbr_fd.c \
+	ft_putnbr_fd.c
 
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
+	ar rcs $(NAME) $@
 
 clean:
 	rm -f $(OBJS)

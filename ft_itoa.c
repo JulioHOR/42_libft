@@ -6,13 +6,13 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 18:26:31 by juhenriq          #+#    #+#             */
-/*   Updated: 2024/11/12 16:04:53 by juhenriq         ###   ########.fr       */
+/*   Updated: 2024/11/13 19:11:19 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	determine_n_len(int n)
+static int	get_nb_of_digits(int n)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ int	determine_n_len(int n)
 	return (i);
 }
 
-void	fill_arr(char *array, int array_pos, int n, int is_negative)
+static void	fill_arr(char *array, int array_pos, int n, int is_negative)
 {
 	array[array_pos + 1] = '\0';
 	if (is_negative)
@@ -46,7 +46,7 @@ char	*ft_itoa(int n)
 	int		that_number;
 	char	*array;
 
-	n_len = determine_n_len(n);
+	n_len = get_nb_of_digits(n);
 	is_negative = (n < 0);
 	that_number = 0;
 	if (is_negative)
