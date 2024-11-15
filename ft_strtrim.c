@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:41:38 by juhenriq          #+#    #+#             */
-/*   Updated: 2024/11/13 20:11:01 by juhenriq         ###   ########.fr       */
+/*   Updated: 2024/11/14 23:04:06 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	start = find_it_for_me(s1, set, 0);
 	end = find_it_for_me(s1, set, 1);
 	if (start == -1 || end == -1)
-		return (calloc(1, 1));
+		return (ft_calloc(1, 1));
 	return (ft_substr(s1, start, ((end - start) + 1)));
 }
