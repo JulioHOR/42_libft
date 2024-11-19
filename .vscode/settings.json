@@ -4,6 +4,7 @@
         "stdlib.h": "c",
         "unistd.h": "c",
         "libft.h": "c",
-        "array": "c"
+        "array": "c",
+        "stdio.h": "c"
     }
 }

@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 18:40:02 by juhenriq          #+#    #+#             */
-/*   Updated: 2024/11/19 15:55:08 by juhenriq         ###   ########.fr       */
+/*   Created: 2024/11/19 16:07:36 by juhenriq          #+#    #+#             */
+/*   Updated: 2024/11/19 16:16:59 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (!(new))
-		return ;
-	new->next = *lst;
-	*lst = new;
+	t_list	*tmp_ptr;
+
+	if (!(lst))
+		return (NULL);
+	tmp_ptr = lst;
+	while (tmp_ptr->next)
+		tmp_ptr = tmp_ptr->next;
+	return (tmp_ptr);
 }
