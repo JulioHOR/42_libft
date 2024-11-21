@@ -12,30 +12,46 @@
 
 #include "libft.h"
 
+int	check_memory_allocation(t_list *ptr_that_iters_copied_list, t_list *head, \
+	void (*del)(void *))
+{
+	if (!(ptr_that_iters_copied_list))
+	{
+		if (!(head))
+			return (1);
+		ft_lstclear(&head, del);
+		return (1);
+	}
+	return (0);
+}
+
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*ptr_to_copied_lst;
-	t_list	*iter_copied_lst_ptr;
-	t_list	*iter_lst_ptr;
+	t_list	*head_copied_lst;
+	t_list	*ptr_that_iters_copied_list;
+	t_list	*ptr_that_iters_list;
+	t_list	*temp_ptr;
 
 	if (!(lst))
 		return (NULL);
-	ptr_to_copied_lst = NULL;
-	iter_lst_ptr = lst;
-	while (iter_lst_ptr)
+	temp_ptr = NULL;
+	head_copied_lst = NULL;
+	ptr_that_iters_list = lst;
+	while (ptr_that_iters_list)
 	{
-		iter_copied_lst_ptr = ft_lstnew(f(iter_lst_ptr->content));
-		if (!(iter_copied_lst_ptr))
-		{
-			if (!(ptr_to_copied_lst))
-				return (NULL);
-			ft_lstclear(&ptr_to_copied_lst, del);
-		}
-		if (!(ptr_to_copied_lst) && (iter_copied_lst_ptr))
-			ptr_to_copied_lst = iter_copied_lst_ptr;
-		iter_lst_ptr = iter_lst_ptr->next;
+		ptr_that_iters_copied_list = ft_lstnew(f(ptr_that_iters_list->content));
+		if (check_memory_allocation(ptr_that_iters_copied_list, \
+			head_copied_lst, del))
+			return (NULL);
+		if (!(head_copied_lst) && (ptr_that_iters_copied_list))
+			head_copied_lst = ptr_that_iters_copied_list;
+		if (temp_ptr)
+			temp_ptr->next = ptr_that_iters_copied_list;
+		temp_ptr = ptr_that_iters_copied_list;
+		// ft_lstadd_back(&head_copied_lst, ptr_that_iters_copied_list);
+		ptr_that_iters_list = ptr_that_iters_list->next;
 	}
-	return (ptr_to_copied_lst);
+	return (head_copied_lst);
 }
 
 #include <stdio.h>
@@ -63,8 +79,7 @@ void	do_nothing(void *ptr_to_free)
 
 void	*do_nothing_and_returns_nothing(void *ptr_to_free)
 {
-	(void) ptr_to_free;
-	return (NULL);
+	return (ptr_to_free);
 }
 
 int	main(void)
@@ -73,6 +88,7 @@ int	main(void)
 	t_list	*iter_original_lst_ptr;
 	t_list	*ptr_to_copied_lst;
 	char	*strings_to_create[] = {"abacate", "beterraba", "cenoura", NULL};
+	char	*string_to_add;
 	int		i;
 
 	printf("\n\n--- Iniciando ---\n\n");
@@ -114,8 +130,8 @@ int	main(void)
 	ft_lstiter(ptr_to_copied_lst, &main_prints_contents);
 
 	// frees the lists
-	ft_lstclear(&original_lst, &do_nothing);
-	ft_lstclear(&ptr_to_copied_lst, &do_nothing);
+	ft_lstclear(&original_lst, &ft_lstdelone);
+	ft_lstclear(&ptr_to_copied_lst, &ft_lstdelone);
 
 	printf("\n\n--- Encerrando ---\n\n");
 	return (0);
