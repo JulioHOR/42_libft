@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 21:24:01 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/02/01 04:29:36 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/02/06 03:14:30 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_printf_free_everything(t_input **input_str)
 	return (-1);
 }
 
-char	*modified_ft_strdup(char *str, unsigned long max_idx)
+char	*ft_printf_modified_ft_strdup(char *str, unsigned long max_idx)
 {
 	char				*output_string;
 	unsigned long		i;

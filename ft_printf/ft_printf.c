@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 21:29:08 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/02/01 04:29:36 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/02/06 03:14:30 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	ft_printf(const char *input_str, ...)
 	if (!(tinput_str))
 		return (ft_printf_free_everything(&tinput_str));
 	get_output_string(tinput_str, var_args);
-	output_string = modified_ft_strdup(tinput_str->output_str,
+	output_string = ft_printf_modified_ft_strdup(tinput_str->output_str,
 			tinput_str->output_str_len);
 	if (!(output_string))
 	{

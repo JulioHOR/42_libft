@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 21:34:09 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/02/04 23:10:41 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/02/06 03:14:30 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct s_input
 char		*copy_input_str_and_exit(t_input *tinput);
 char		*ft_printf_create_new_str(t_fmt_spec *tfmt_spec, int char_limiter);
 char		*get_output_string(t_input *tinput_str, va_list va_args);
-char		*modified_ft_strdup(char *str, unsigned long max_idx);
+char		*ft_printf_modified_ft_strdup(char *str, unsigned long max_idx);
 char		*pointer_exception_work_on_out_string(t_fmt_spec *tfmt_spec,
 				int new_str_len, int add_zeros, char *ptr_addr_as_str);
 char		*unsigned_hex_int_to_hex(unsigned int number, int case_flag);
