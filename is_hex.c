@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 00:47:16 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/02/07 00:47:38 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/03/14 01:38:19 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ static int	check_hex(char *str, int str_len, const char *hex_characters)
 
 	matches_hex_char = 0;
 	i = -1;
-	j = -1;
 	while (++i < str_len)
 	{
 		matches_hex_char = 0;
+		j = -1;
 		while (++j < 16)
 		{
 			if (str[i] == hex_characters[j]
@@ -44,6 +44,8 @@ int	is_hex(char *str)
 	size_t		str_len;
 	const char	*hex_characters;
 
+	if (!(str))
+		return (0);
 	hex_characters = "0123456789abcdef";
 	str_len = ft_strlen(str);
 	return (check_hex(str, str_len, hex_characters));
