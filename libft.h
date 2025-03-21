@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 18:13:02 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/02/07 00:49:04 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/03/21 00:00:22 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,6 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int		ft_strcmp_homemade(char *str1, char *str2);
 int		is_hex(char *str);
+int		ft_is_int(char *str);
 
 #endif
