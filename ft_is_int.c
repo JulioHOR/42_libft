@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:08:12 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/03/21 01:23:46 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/04/01 03:07:39 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static int	only_digits(char *str)
 	i = 0;
 	if (str[0] == '-' || str[0] == '+')
 		i++;
+	if (i == 1 && str[1] == '\0')
+		return (0);
 	while (str[i])
 		if (!(ft_isdigit(str[i++])))
 			return (0);
@@ -55,6 +57,8 @@ int	ft_is_int(char *str)
 	int			str_len;
 
 	if (str == NULL)
+		return (0);
+	if (str[0] == '\0')
 		return (0);
 	if (!(has_int_len(str, &str_len, &min_len, &max_len)))
 		return (0);
