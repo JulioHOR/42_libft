@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 21:29:08 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/02/06 03:14:30 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/04/16 23:45:30 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,35 @@ int	ft_printf(const char *input_str, ...)
 	}
 	final_str_len = tinput_str->output_str_len;
 	write(1, output_string, tinput_str->output_str_len);
+	free(output_string);
+	ft_printf_free_everything(&tinput_str);
+	va_end(var_args);
+	return (final_str_len);
+}
+
+int	ft_printf_error(const char *input_str, ...)
+{
+	va_list		var_args;
+	t_input		*tinput_str;
+	char		*output_string;
+	int			final_str_len;
+
+	va_start(var_args, input_str);
+	if (!(input_str))
+		return (-1);
+	tinput_str = create_tinput_str(input_str);
+	if (!(tinput_str))
+		return (ft_printf_free_everything(&tinput_str));
+	get_output_string(tinput_str, var_args);
+	output_string = ft_printf_modified_ft_strdup(tinput_str->output_str,
+			tinput_str->output_str_len);
+	if (!(output_string))
+	{
+		ft_printf_free_everything(&tinput_str);
+		return (-1);
+	}
+	final_str_len = tinput_str->output_str_len;
+	write(2, output_string, tinput_str->output_str_len);
 	free(output_string);
 	ft_printf_free_everything(&tinput_str);
 	va_end(var_args);

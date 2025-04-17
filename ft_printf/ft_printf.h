@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 21:34:09 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/02/06 03:14:30 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/04/16 23:47:17 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ int			determine_data_type(t_fmt_spec *tfmt_spec, const char *string,
 int			find_char(const char *str, char target_char, int start);
 int			flags_in_this_node(t_fmt_spec *tfmt_spec);
 int			ft_printf(const char *string, ...);
+int			ft_printf_error(const char *input_str, ...);
 int			ft_printf_free_everything(t_input **tinput_str);
 int			get_ptr_modifier(t_fmt_spec *tfmt_spec);
 int			identify_specifiers(t_input *tinput_str);
