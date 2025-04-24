@@ -6,7 +6,7 @@
 #    By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/17 19:42:29 by juhenriq          #+#    #+#              #
-#    Updated: 2025/04/02 14:43:53 by juhenriq         ###   ########.fr        #
+#    Updated: 2025/04/23 23:28:41 by juhenriq         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ DEBUG ?= 0
 ifeq ($(DEBUG), 1)
     CFLAGS += -g -O0
 else
-    CFLAGS += -O3
+    CFLAGS +=
 endif
 
 SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
