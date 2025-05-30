@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 18:13:02 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/03/21 00:00:22 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/05/29 23:48:33 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }	t_list;
+
+typedef struct s_safest_malloc
+{
+	int		ptr_spaces;
+	int		ptr_used_spaces;
+	void	**array;
+}	t_gc_malloc;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -69,5 +76,13 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int		ft_strcmp_homemade(char *str1, char *str2);
 int		is_hex(char *str);
 int		ft_is_int(char *str);
+void	*gc_malloc(size_t size);
+void	gc_free(void *ptr);
+void	free_gc_malloc(t_gc_malloc *gc_malloc);
+void	_init_gc_malloc(t_gc_malloc	*gc_malloc);
+int		ft_printf_error(const char *input_str, ...);
+void	_double_gc_malloc(t_gc_malloc *gc_malloc);
+void	_gc_malloc_insert_ptr(t_gc_malloc *gc_malloc, void *ptr);
+t_gc_malloc	*_get_gc_malloc(void);
 
 #endif
