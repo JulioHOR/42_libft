@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 01:13:44 by juhenriq          #+#    #+#             */
-/*   Updated: 2024/11/08 02:12:45 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 22:31:03 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
 	combined_len = (s1_len + s2_len) + 1;
-	new_string = (char *) malloc(combined_len);
+	new_string = (char *) gc_malloc(combined_len);
 	if (!(new_string))
 		return ((void *) 0);
 	ft_strlcpy(new_string, s1, s1_len + 1);

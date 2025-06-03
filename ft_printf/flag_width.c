@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 00:25:27 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/02/01 04:29:36 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 22:31:03 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	width_applied_str(int nb_to_apply_width_as_int,
 
 	if (nb_to_apply_width_as_int < tfmt_spec->out_cont_len)
 		return ;
-	applied_str = (char *) malloc(nb_to_apply_width_as_int + 1);
+	applied_str = (char *) gc_malloc(nb_to_apply_width_as_int + 1);
 	if (!(applied_str))
 	{
 		free(tfmt_spec->out_cont);

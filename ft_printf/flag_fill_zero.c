@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 02:26:42 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/02/01 04:29:36 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 22:31:03 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static char	*get_new_string(t_fmt_spec *tfmt_spec, int zeroes_to_apply,
 {
 	char	*new_str;
 
-	new_str = (char *) malloc(tfmt_spec->out_cont_len + zeroes_to_apply
+	new_str = (char *) gc_malloc(tfmt_spec->out_cont_len + zeroes_to_apply
 			- ptr_modifier + 1);
 	if (!(new_str))
 	{

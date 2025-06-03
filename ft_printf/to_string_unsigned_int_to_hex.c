@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 17:55:03 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/02/01 04:29:36 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 22:31:03 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*unsigned_hex_int_to_hex(unsigned int number, int case_flag)
 	else
 		hex_representation = "0123456789abcdef";
 	length = hex_get_hex_len(number);
-	array = (char *) malloc(length + 1);
+	array = (char *) gc_malloc(length + 1);
 	if (!(array))
 		return (NULL);
 	array[length] = '\0';
@@ -82,7 +82,7 @@ char	*unsigned_ptr_int_to_hex(uint64_t number, int case_flag)
 	else
 		hex_representation = "0123456789abcdef";
 	length = ptr_get_hex_len(number);
-	array = (char *) malloc(length + 1);
+	array = (char *) gc_malloc(length + 1);
 	if (!(array))
 		return (NULL);
 	array[length] = '\0';

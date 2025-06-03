@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 21:24:16 by juhenriq          #+#    #+#             */
-/*   Updated: 2024/12/08 18:39:49 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 22:31:03 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,11 @@ t_fd	*create_tfd(int fd)
 {
 	t_fd	*i_tfd;
 
-	i_tfd = (t_fd *) malloc(sizeof(t_fd));
+	i_tfd = (t_fd *) gc_malloc(sizeof(t_fd));
 	if (!(i_tfd))
 		return (NULL);
 	i_tfd->cont_max_sz_bytes = (BUFFER_SIZE + 1);
-	i_tfd->content = (char *) malloc(i_tfd->cont_max_sz_bytes);
+	i_tfd->content = (char *) gc_malloc(i_tfd->cont_max_sz_bytes);
 	if (!(i_tfd->content))
 	{
 		free(i_tfd);

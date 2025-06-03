@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 03:33:37 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/02/01 04:29:36 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 22:31:03 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_printf_create_new_str(t_fmt_spec *tfmt_spec, int char_limiter)
 {
 	char	*new_str;
 
-	new_str = (char *) malloc(tfmt_spec->out_cont_len + char_limiter + 1);
+	new_str = (char *) gc_malloc(tfmt_spec->out_cont_len + char_limiter + 1);
 	if (!(new_str))
 	{
 		free(tfmt_spec->out_cont);
@@ -68,7 +68,7 @@ char	*pointer_exception_work_on_out_string(t_fmt_spec *tfmt_spec,
 {
 	char	*new_str;
 
-	new_str = (char *) malloc(new_str_len + 1);
+	new_str = (char *) gc_malloc(new_str_len + 1);
 	if (!(new_str))
 	{
 		free(tfmt_spec->out_cont);

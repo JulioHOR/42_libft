@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 19:29:58 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/02/01 04:29:36 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 22:31:03 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ char	*get_output_string(t_input *tinput, va_list var_args)
 		fmt_spec = fmt_spec->next_fmt_spec;
 	}
 	final_string_len = calculate_final_string_len(tinput);
-	tinput->output_str = (char *) malloc(final_string_len + 1);
+	tinput->output_str = (char *) gc_malloc(final_string_len + 1);
 	if (!(tinput->output_str))
 		return (NULL);
 	tinput->output_str[final_string_len] = '\0';

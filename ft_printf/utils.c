@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 21:24:01 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/02/06 03:14:30 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 22:31:03 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*ft_printf_modified_ft_strdup(char *str, unsigned long max_idx)
 	char				*output_string;
 	unsigned long		i;
 
-	output_string = malloc(max_idx + 1);
+	output_string = gc_malloc(max_idx + 1);
 	if (!(output_string))
 		return (NULL);
 	output_string[max_idx] = '\0';
@@ -56,7 +56,7 @@ t_fmt_spec	*create_fmt_specifier(int fmt_start_idx)
 {
 	t_fmt_spec	*newest_fmt_node;
 
-	newest_fmt_node = (t_fmt_spec *) malloc(sizeof(t_fmt_spec));
+	newest_fmt_node = (t_fmt_spec *) gc_malloc(sizeof(t_fmt_spec));
 	if (!(newest_fmt_node))
 		return (NULL);
 	newest_fmt_node->start_idx = fmt_start_idx;
@@ -98,7 +98,7 @@ t_input	*create_tinput_str(const char *string)
 {
 	t_input	*tinput_str;
 
-	tinput_str = malloc(sizeof(t_input));
+	tinput_str = gc_malloc(sizeof(t_input));
 	if (!(tinput_str))
 		return (NULL);
 	tinput_str->input_str = string;

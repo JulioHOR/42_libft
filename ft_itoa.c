@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 18:26:31 by juhenriq          #+#    #+#             */
-/*   Updated: 2024/11/13 19:11:19 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 22:31:03 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	*ft_itoa(int n)
 		else
 			n *= -1;
 	}
-	array = malloc(((n_len + is_negative) + 1) * sizeof(char));
+	array = gc_malloc(((n_len + is_negative) + 1) * sizeof(char));
 	if (!(array))
 		return (NULL);
 	fill_arr(array, ((n_len + is_negative) - 1), n, is_negative);

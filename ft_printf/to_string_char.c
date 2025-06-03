@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 06:33:22 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/02/01 04:29:36 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 22:31:03 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	to_string_char(t_fmt_spec *tfmt_spec, char c)
 {
 	char	*str;
 
-	str = (char *) malloc(sizeof(c) + 1);
+	str = (char *) gc_malloc(sizeof(c) + 1);
 	if (!(str))
 	{
 		tfmt_spec->out_cont = NULL;

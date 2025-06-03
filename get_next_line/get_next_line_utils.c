@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 21:25:38 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/02/06 03:15:53 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 22:31:03 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*modified_ft_strdup(t_fd *tfd)
 	while (s[i])
 		i++;
 	string_len = i;
-	malloc_return = (char *) malloc(string_len + 1);
+	malloc_return = (char *) gc_malloc(string_len + 1);
 	if (!malloc_return)
 		return (NULL);
 	i = 0;
@@ -73,7 +73,7 @@ int	alloc_more(t_fd *curr_tfd)
 	new_size = ((curr_tfd->cont_max_sz_bytes - 1) * 2) + 1;
 	if (new_size <= BUFFER_SIZE)
 		new_size = (BUFFER_SIZE + 1);
-	new_string = (char *) malloc((new_size));
+	new_string = (char *) gc_malloc((new_size));
 	if (!(new_string))
 		return (-1);
 	curr_tfd->cont_max_sz_bytes = new_size;
@@ -97,7 +97,7 @@ char	*extract_string(t_fd *tfd, long long nl_idx)
 	char		*result_string;
 	long long	i;
 
-	result_string = (char *) malloc(nl_idx + 2);
+	result_string = (char *) gc_malloc(nl_idx + 2);
 	if (!(result_string))
 		return (NULL);
 	if ((!(tfd->content)) && (!(result_string)))

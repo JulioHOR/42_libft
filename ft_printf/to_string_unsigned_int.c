@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 19:44:06 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/02/01 04:29:36 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 22:31:03 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static char	*ft_unsigned_itoa(unsigned int n)
 		}
 		n_len = i;
 	}
-	array = (char *) malloc(n_len + 1);
+	array = (char *) gc_malloc(n_len + 1);
 	if (!(array))
 		return (NULL);
 	array[n_len] = '\0';
