@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 00:25:27 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/06/02 22:31:03 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 23:44:14 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ static void	width_applied_str(int nb_to_apply_width_as_int,
 	applied_str = (char *) gc_malloc(nb_to_apply_width_as_int + 1);
 	if (!(applied_str))
 	{
-		free(tfmt_spec->out_cont);
+		gc_free(tfmt_spec->out_cont);
 		tfmt_spec->out_cont = NULL;
 		return ;
 	}
 	applied_str[nb_to_apply_width_as_int] = '\0';
 	flag_width_fill_str(tfmt_spec, applied_str, nb_to_apply_width_as_int);
-	free(tfmt_spec->out_cont);
+	gc_free(tfmt_spec->out_cont);
 	tfmt_spec->out_cont = applied_str;
 	tfmt_spec->out_cont_len = nb_to_apply_width_as_int;
 }

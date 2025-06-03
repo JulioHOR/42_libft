@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 02:27:17 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/02/01 04:29:36 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 23:44:14 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ static void	string_case(t_fmt_spec *tfmt_spec, int char_limiter)
 		return ;
 	}
 	new_str = ft_substr(tfmt_spec->out_cont, 0, char_limiter);
-	free(tfmt_spec->out_cont);
+	gc_free(tfmt_spec->out_cont);
 	tfmt_spec->out_cont = new_str;
 	tfmt_spec->out_cont_len = ft_strlen(tfmt_spec->out_cont);
 }

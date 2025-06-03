@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 21:28:28 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/02/01 04:29:36 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 23:44:14 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ static void	work_on_output_str(t_fmt_spec *tfmt_spec)
 	new_str = ft_strjoin(" ", tfmt_spec->out_cont);
 	if (!(new_str))
 	{
-		free(tfmt_spec->out_cont);
+		gc_free(tfmt_spec->out_cont);
 		tfmt_spec->out_cont = NULL;
 		return ;
 	}
-	free(tfmt_spec->out_cont);
+	gc_free(tfmt_spec->out_cont);
 	tfmt_spec->out_cont = new_str;
 	tfmt_spec->out_cont_len = ft_strlen(tfmt_spec->out_cont);
 }

@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 21:29:08 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/04/16 23:45:30 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 23:44:14 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	ft_printf(const char *input_str, ...)
 	}
 	final_str_len = tinput_str->output_str_len;
 	write(1, output_string, tinput_str->output_str_len);
-	free(output_string);
+	gc_free(output_string);
 	ft_printf_free_everything(&tinput_str);
 	va_end(var_args);
 	return (final_str_len);
@@ -123,7 +123,7 @@ int	ft_printf_error(const char *input_str, ...)
 	}
 	final_str_len = tinput_str->output_str_len;
 	write(2, output_string, tinput_str->output_str_len);
-	free(output_string);
+	gc_free(output_string);
 	ft_printf_free_everything(&tinput_str);
 	va_end(var_args);
 	return (final_str_len);

@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 21:24:16 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/06/02 22:31:03 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 23:44:14 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ t_fd	*create_tfd(int fd)
 	i_tfd->content = (char *) gc_malloc(i_tfd->cont_max_sz_bytes);
 	if (!(i_tfd->content))
 	{
-		free(i_tfd);
+		gc_free(i_tfd);
 		return (NULL);
 	}
 	i_tfd->content[0] = '\0';

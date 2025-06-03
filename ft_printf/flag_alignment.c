@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 22:46:43 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/06/02 22:31:03 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 23:44:14 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	work_on_output_str(t_fmt_spec *tfmt_spec, int alignment_nb,
 			+ alignment_to_apply + 1);
 	if (!(new_content))
 	{
-		free(tfmt_spec->out_cont);
+		gc_free(tfmt_spec->out_cont);
 		tfmt_spec->out_cont = NULL;
 		return ;
 	}
@@ -34,7 +34,7 @@ static void	work_on_output_str(t_fmt_spec *tfmt_spec, int alignment_nb,
 		new_content[i] = ' ';
 		i++;
 	}
-	free(tfmt_spec->out_cont);
+	gc_free(tfmt_spec->out_cont);
 	tfmt_spec->out_cont = new_content;
 	if (tfmt_spec->out_cont[0] == '\0' && tfmt_spec->data_type == TYPE_CHAR)
 		tfmt_spec->out_cont_len = tfmt_spec->out_cont_len + alignment_to_apply;

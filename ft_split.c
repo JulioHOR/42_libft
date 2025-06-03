@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 22:04:02 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/06/02 22:31:03 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 23:44:14 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	free_substrings(char **ptr_arr, int ptr_arr_pos)
 {
 	while (ptr_arr_pos >= 0)
-		free(ptr_arr[ptr_arr_pos--]);
+		gc_free(ptr_arr[ptr_arr_pos--]);
 }
 
 static int	fill_pointer_array(char **ptr_arr, char const *s, char c)
@@ -84,7 +84,7 @@ char	**ft_split(char const *s, char c)
 	pointer_array[pointer_array_len - 1] = NULL;
 	if (fill_pointer_array(pointer_array, s, c))
 	{
-		free(pointer_array);
+		gc_free(pointer_array);
 		return (NULL);
 	}
 	return (pointer_array);

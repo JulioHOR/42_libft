@@ -6,11 +6,11 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 18:26:31 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/06/02 22:31:03 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 23:49:29 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 static int	get_nb_of_digits(int n)
 {

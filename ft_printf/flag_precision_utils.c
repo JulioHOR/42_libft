@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 03:33:37 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/06/02 22:31:03 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 23:44:14 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_printf_return_an_empty_str(t_fmt_spec *tfmt_spec)
 {
-	free(tfmt_spec->out_cont);
+	gc_free(tfmt_spec->out_cont);
 	tfmt_spec->out_cont = ft_strdup("");
 	tfmt_spec->out_cont_len = 0;
 }
@@ -26,8 +26,8 @@ char	*ft_printf_create_new_str(t_fmt_spec *tfmt_spec, int char_limiter)
 	new_str = (char *) gc_malloc(tfmt_spec->out_cont_len + char_limiter + 1);
 	if (!(new_str))
 	{
-		free(tfmt_spec->out_cont);
-		free(tfmt_spec->out_cont = NULL);
+		gc_free(tfmt_spec->out_cont);
+		gc_free(tfmt_spec->out_cont = NULL);
 		return (NULL);
 	}
 	new_str[tfmt_spec->out_cont_len + char_limiter] = '\0';
@@ -36,7 +36,7 @@ char	*ft_printf_create_new_str(t_fmt_spec *tfmt_spec, int char_limiter)
 
 void	return_out_str_as_usual(t_fmt_spec *tfmt_spec, char *new_str)
 {
-	free(tfmt_spec->out_cont);
+	gc_free(tfmt_spec->out_cont);
 	tfmt_spec->out_cont = new_str;
 	tfmt_spec->out_cont_len = ft_strlen(tfmt_spec->out_cont);
 }
@@ -71,7 +71,7 @@ char	*pointer_exception_work_on_out_string(t_fmt_spec *tfmt_spec,
 	new_str = (char *) gc_malloc(new_str_len + 1);
 	if (!(new_str))
 	{
-		free(tfmt_spec->out_cont);
+		gc_free(tfmt_spec->out_cont);
 		tfmt_spec->out_cont = NULL;
 		return (NULL);
 	}

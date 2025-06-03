@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 21:25:38 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/06/02 22:31:03 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 23:44:14 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	alloc_more(t_fd *curr_tfd)
 		i++;
 	}
 	((unsigned char *) new_string)[i] = '\0';
-	free(curr_tfd->content);
+	gc_free(curr_tfd->content);
 	curr_tfd->content = new_string;
 	return (0);
 }
@@ -137,7 +137,7 @@ void	*free_this_node(t_fd **tfd_head, t_fd *target_tfd_for_removal)
 		last_valid_tfdnode->next_tfd = i_tfd->next_tfd;
 	if (i_tfd == *tfd_head)
 		*tfd_head = i_tfd->next_tfd;
-	free(i_tfd->content);
-	free(i_tfd);
+	gc_free(i_tfd->content);
+	gc_free(i_tfd);
 	return (NULL);
 }

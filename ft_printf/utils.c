@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 21:24:01 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/06/02 22:31:03 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 23:44:14 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ int	ft_printf_free_everything(t_input **input_str)
 	while (curr_fmt_spec)
 	{
 		next_fmt_spec = curr_fmt_spec->next_fmt_spec;
-		free(curr_fmt_spec->out_cont);
-		free(curr_fmt_spec->orig_fmt_spec_str);
-		free(curr_fmt_spec);
+		gc_free(curr_fmt_spec->out_cont);
+		gc_free(curr_fmt_spec->orig_fmt_spec_str);
+		gc_free(curr_fmt_spec);
 		curr_fmt_spec = next_fmt_spec;
 	}
-	free((*input_str)->output_str);
-	free(*input_str);
+	gc_free((*input_str)->output_str);
+	gc_free(*input_str);
 	*input_str = NULL;
 	return (-1);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 19:36:31 by juhenriq          #+#    #+#             */
-/*   Updated: 2024/11/19 19:59:51 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 23:44:14 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	ft_lstclear(&((*lst)->next), del);
 	if ((*lst)->content)
 		del((*lst)->content);
-	free(*lst);
+	gc_free(*lst);
 	*lst = NULL;
 }

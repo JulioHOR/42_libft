@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 18:48:30 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/02/01 04:29:36 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 23:44:14 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,5 @@ void	prefixe_flag_applier(t_fmt_spec *tfmt_spec)
 	else
 		tfmt_spec->out_cont = ft_strjoin("0X", tfmt_spec->out_cont);
 	tfmt_spec->out_cont_len = ft_strlen(tfmt_spec->out_cont);
-	free(temp_ptr);
+	gc_free(temp_ptr);
 }

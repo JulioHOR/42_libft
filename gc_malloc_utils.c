@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 16:04:12 by jhualves          #+#    #+#             */
-/*   Updated: 2025/05/29 23:08:46 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 23:44:14 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	_double_gc_malloc(t_gc_malloc *gc_malloc)
 	i = gc_malloc->ptr_spaces;
 	while (i < doubled_len)
 		new_array[i++] = NULL;
-	free(gc_malloc->array);
+	gc_free(gc_malloc->array);
 	gc_malloc->array = new_array;
 	gc_malloc->ptr_spaces = doubled_len;
 }

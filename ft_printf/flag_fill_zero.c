@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 02:26:42 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/06/02 22:31:03 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 23:44:14 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 static void	finalize_fill_zero_str(t_fmt_spec *tfmt_spec, char *new_str)
 {
-	free(tfmt_spec->out_cont);
+	gc_free(tfmt_spec->out_cont);
 	if (tfmt_spec->data_type == TYPE_POINTER)
 	{
 		tfmt_spec->out_cont = ft_strjoin("0x", new_str);
-		free(new_str);
+		gc_free(new_str);
 	}
 	else
 		tfmt_spec->out_cont = new_str;
@@ -69,7 +69,7 @@ static char	*get_new_string(t_fmt_spec *tfmt_spec, int zeroes_to_apply,
 			- ptr_modifier + 1);
 	if (!(new_str))
 	{
-		free(tfmt_spec->out_cont);
+		gc_free(tfmt_spec->out_cont);
 		tfmt_spec->out_cont = NULL;
 		return (NULL);
 	}

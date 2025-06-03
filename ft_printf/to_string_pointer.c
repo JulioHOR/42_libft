@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 19:08:08 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/02/01 04:29:36 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/02 23:44:14 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ void	to_string_pointer(t_fmt_spec *tfmt_spec, void *ptr, int hex_or_ptr)
 	to_string_hex(tfmt_spec, (uint64_t) ptr, 0, hex_or_ptr);
 	result = tfmt_spec->out_cont;
 	tfmt_spec->out_cont = ft_strjoin("0x", tfmt_spec->out_cont);
-	free(result);
+	gc_free(result);
 }
