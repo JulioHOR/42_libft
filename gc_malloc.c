@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 16:04:12 by jhualves          #+#    #+#             */
-/*   Updated: 2025/06/02 23:44:20 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/05 14:05:31 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ void	free_gc_malloc(t_gc_malloc *gc_malloc)
 	{
 		if (gc_malloc->array[i] != NULL)
 		{
-			gc_free(gc_malloc->array[i]);
+			free(gc_malloc->array[i]);
 			gc_malloc->array[i] = NULL;
 		}
 		i++;
 	}
-	gc_free(gc_malloc->array);
+	free(gc_malloc->array);
 	gc_malloc->array = NULL;
 }
 
