@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 18:13:02 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/06/03 01:56:41 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/08 03:36:23 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int			is_hex(char *str);
 int			ft_is_int(char *str);
 void		*gc_malloc(size_t size);
 void		gc_free(void *ptr);
-void		free_gc_malloc(t_gc_malloc *gc_malloc);
+void		free_gc_malloc(t_gc_malloc *gc_malloc, int mode);
 void		_init_gc_malloc(t_gc_malloc	*gc_malloc);
 int			ft_printf_error(const char *input_str, ...);
 void		_double_gc_malloc(t_gc_malloc *gc_malloc);

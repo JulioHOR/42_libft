@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 16:35:55 by juhenriq          #+#    #+#             */
-/*   Updated: 2024/11/20 21:11:18 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/08 03:55:56 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	chk_malloc(t_list *ptr_iters_copied_list, t_list *head, \
+int	chk_malloc(t_list *ptr_iters_copied_list, t_list *head,
 	void (*del)(void *), void *n_content)
 {
 	if (!ptr_iters_copied_list)

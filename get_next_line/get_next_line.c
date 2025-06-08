@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 21:24:16 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/06/02 23:44:14 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/08 03:54:43 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ char	*get_string(t_fd *tfd)
 		if ((tfd->filld_size + BUFFER_SIZE) > (tfd->cont_max_sz_bytes - 1))
 			if (alloc_more(tfd))
 				return (NULL);
-		bytes_read = read(tfd->fd_nbr, \
-			&((tfd->content)[tfd->filld_size]), BUFFER_SIZE);
+		bytes_read = read(tfd->fd_nbr,
+				&((tfd->content)[tfd->filld_size]), BUFFER_SIZE);
 		if (bytes_read == -1)
 			return (NULL);
 		tfd->filld_size += bytes_read;

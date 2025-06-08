@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:41:38 by juhenriq          #+#    #+#             */
-/*   Updated: 2024/11/14 23:04:06 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/08 03:56:09 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	it_matches(char char_to_match, char const *set)
 	return (0);
 }
 
-static int	find_it_for_me(char const *s1, char const *set, \
+static int	find_it_for_me(char const *s1, char const *set,
 	int flag_start_or_end)
 {
 	int	i;

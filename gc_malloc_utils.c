@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 16:04:12 by jhualves          #+#    #+#             */
-/*   Updated: 2025/06/05 14:05:44 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/08 04:00:29 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	_double_gc_malloc(t_gc_malloc *gc_malloc)
 	if (!new_array)
 	{
 		ft_printf("Failed to double the managed malloc size .\n");
-		free_gc_malloc(gc_malloc);
+		free_gc_malloc(gc_malloc, 0);
 		exit(1);
 	}
 	ft_memcpy(new_array, gc_malloc->array,

@@ -6,13 +6,21 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 16:04:12 by jhualves          #+#    #+#             */
-/*   Updated: 2025/06/05 14:05:31 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/08 04:00:06 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	free_gc_malloc(t_gc_malloc *gc_malloc)
+void	_gc_print_warning_message(void)
+{
+	ft_printf("Memory-aware mode of gc_malloc is on. By passing any number "
+		"different than 0 to 'free_gc_malloc', gc_malloc will not free any "
+		"memory that hasn't been explicitly freed using gc_free. This mode "
+		"is useful for manual memory management awareness.\n");
+}
+
+void	free_gc_malloc(t_gc_malloc *gc_malloc, int mode)
 {
 	int	i;
 
@@ -20,15 +28,22 @@ void	free_gc_malloc(t_gc_malloc *gc_malloc)
 		gc_malloc = _get_gc_malloc();
 	if (!gc_malloc->array)
 		return ;
+	if (mode > 1 || mode < 0)
+		mode = 1;
+	if (mode)
+		_gc_print_warning_message();
 	i = 0;
-	while (i < gc_malloc->ptr_spaces)
+	if (mode == 0)
 	{
-		if (gc_malloc->array[i] != NULL)
+		while (i < gc_malloc->ptr_spaces && mode == 0)
 		{
-			free(gc_malloc->array[i]);
-			gc_malloc->array[i] = NULL;
+			if (gc_malloc->array[i] != NULL)
+			{
+				free(gc_malloc->array[i]);
+				gc_malloc->array[i] = NULL;
+			}
+			i++;
 		}
-		i++;
 	}
 	free(gc_malloc->array);
 	gc_malloc->array = NULL;
@@ -84,7 +99,7 @@ void	*gc_malloc(size_t size)
 	}
 	ptr = (void *) malloc(size);
 	if (!ptr)
-		free_gc_malloc(gc_malloc);
+		free_gc_malloc(gc_malloc, 0);
 	if (gc_malloc->ptr_spaces == gc_malloc->ptr_used_spaces)
 		_double_gc_malloc(gc_malloc);
 	_gc_malloc_insert_ptr(gc_malloc, ptr);

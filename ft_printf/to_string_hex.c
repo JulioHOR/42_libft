@@ -6,13 +6,13 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 20:05:52 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/02/01 04:29:36 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/08 03:52:29 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	to_string_hex(t_fmt_spec *tfmt_spec, uint64_t nb, int case_flag, \
+void	to_string_hex(t_fmt_spec *tfmt_spec, uint64_t nb, int case_flag,
 	int hex_or_ptr)
 {
 	if (hex_or_ptr)

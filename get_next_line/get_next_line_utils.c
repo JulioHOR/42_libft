@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 21:25:38 by juhenriq          #+#    #+#             */
-/*   Updated: 2025/06/02 23:44:14 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/08 03:55:32 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,8 @@ int	alloc_more(t_fd *curr_tfd)
 	i = 0;
 	while (i <= curr_tfd->filld_size)
 	{
-		((unsigned char *) new_string)[i] = \
-			((unsigned char *) curr_tfd->content)[i];
+		((unsigned char *) new_string)[i]
+			= ((unsigned char *) curr_tfd->content)[i];
 		i++;
 	}
 	((unsigned char *) new_string)[i] = '\0';
@@ -105,12 +105,12 @@ char	*extract_string(t_fd *tfd, long long nl_idx)
 	i = 0;
 	while (i <= nl_idx)
 	{
-		((unsigned char *) result_string)[i] = \
-			((unsigned char *) tfd->content)[i];
+		((unsigned char *) result_string)[i]
+			= ((unsigned char *) tfd->content)[i];
 		i++;
 	}
 	((unsigned char *) result_string)[i] = '\0';
-	get_next_line_ft_memmove((unsigned char *) tfd->content, \
+	get_next_line_ft_memmove((unsigned char *) tfd->content,
 		(unsigned char *) &((tfd->content)[nl_idx + 1]));
 	tfd->filld_size = (tfd->filld_size - nl_idx) - 1;
 	return (result_string);
