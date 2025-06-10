@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 16:04:12 by jhualves          #+#    #+#             */
-/*   Updated: 2025/06/08 04:00:06 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/09 21:48:18 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	_gc_print_warning_message(void)
 {
-	ft_printf("Memory-aware mode of gc_malloc is on. By passing any number "
+	ft_printf("\nMemory-aware mode of gc_malloc is on. By passing any number "
 		"different than 0 to 'free_gc_malloc', gc_malloc will not free any "
 		"memory that hasn't been explicitly freed using gc_free. This mode "
 		"is useful for manual memory management awareness.\n");
