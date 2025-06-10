@@ -6,7 +6,7 @@
 /*   By: juhenriq <dev@juliohenrique.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:30:40 by juhenriq          #+#    #+#             */
-/*   Updated: 2024/11/12 15:55:01 by juhenriq         ###   ########.fr       */
+/*   Updated: 2025/06/09 23:48:18 by juhenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	array_len = ft_strlen(s);
 	if (!s || !f)
 		return ((void *) 0);
-	array = (char *) malloc ((array_len + 1) * sizeof(char));
+	array = (char *) gc_malloc((array_len + 1) * sizeof(char));
 	if (!(array))
 		return ((void *) 0);
 	array[array_len] = '\0';
